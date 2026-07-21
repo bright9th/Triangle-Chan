@@ -15,7 +15,7 @@ Template version:
 | tailwindcss | ^4.2.1 |
 | @eslint/js | ^10.0.1 |
 | @tailwindcss/vite | ^4.2.1 |
-| @types/node | ^25.5.0 |
+| @types/node | ^26.1.1 |
 | @types/react | ^19.2.14 |
 | @types/react-dom | ^19.2.3 |
 | @vitejs/plugin-react-swc | ^4.3.0 |
@@ -24,7 +24,7 @@ Template version:
 | eslint-plugin-react-refresh | ^0.5.2 |
 | gh-pages | ^6.3.0 |
 | globals | ^17.4.0 |
-| typescript | ~6.0.2 |
+| typescript | ~7.0.2 |
 | typescript-eslint | ^8.57.0 |
 | vite | ^8.0.2 |
 <!-- DEPENDENCIES_END -->
