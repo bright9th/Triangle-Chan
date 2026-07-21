@@ -10,8 +10,8 @@ Triangle version:
 | Package | Version |
 |---|---|
 | lucide-react | ^1.0.1 |
-| react | ^19.2.4 |
-| react-dom | ^19.2.4 |
+| react | ^19.2.8 |
+| react-dom | ^19.2.8 |
 | tailwindcss | ^4.2.1 |
 | @eslint/js | ^10.0.1 |
 | @tailwindcss/vite | ^4.2.1 |
