@@ -57,6 +57,14 @@ const Layout = () => {
 
   return (
     <div className="w-screen h-screen bg-white relative overflow-hidden text-black">
+      {/* Background overlay */}
+      <div
+        className="absolute inset-0 opacity-30 bg-center bg-cover bg-no-repeat"
+        style={{
+          backgroundImage: 'url("https://i.imgur.com/7hnzIv8.png")',
+        }}
+      />
+
       {/* Top text */}
       <div className="absolute top-8 left-1/2 -translate-x-1/2 flex flex-col items-center pointer-events-none">
         <h1 className="text-5xl font-bold select-none">{count}</h1>
