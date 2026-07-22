@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 const REGEX = /^\d*30*$/;
 
 const Layout = () => {
+  const [holding, setHolding] = useState(false);
   const [count, setCount] = useState(0);
   const [popups, setPopups] = useState<{ id: number; text: string }[]>([]);
   const nextPopupId = useRef(0);
@@ -95,16 +96,44 @@ const Layout = () => {
       {/* Triangle */}
       <div className="w-full h-full flex items-center justify-center">
         <button
-          onClick={() => setCount((c) => c + 1)}
+          onClick={() => {
+            console.log(2);
+            setCount((c) => c + 1);
+          }}
+          onMouseDown={() => {
+            console.log(1);
+            setHolding(true);
+          }}
+          onMouseUp={() => setHolding(false)}
+          onMouseLeave={() => setHolding(false)}
+          onTouchStart={() => setHolding(true)}
+          onTouchEnd={() => setHolding(false)}
+          onTouchCancel={() => setHolding(false)}
           className="cursor-pointer active:scale-95 transition-transform"
           aria-label="Triangle"
         >
           <div
-            className="animate-spin w-0 h-0
+            className="animate-spin flex items-center justify-center"
+            style={{ animationDuration: "8s" }}
+          >
+            <img
+              src={import.meta.env.BASE_URL + "/assets/triangle.png"}
+              alt="Triangle"
+              className="w-48 h-48 object-contain pointer-events-none select-none"
+              style={{
+                opacity: holding ? 1 : 0,
+              }}
+              draggable={false}
+            />
+            <div
+              className="absolute w-0 h-0
               border-l-[64px] border-r-[64px] border-b-[110px]
               border-l-transparent border-r-transparent border-b-[#FF0000]"
-            style={{ animationDuration: "8s" }}
-          />
+              style={{
+                opacity: holding ? 0 : 1,
+              }}
+            />
+          </div>
         </button>
       </div>
     </div>
