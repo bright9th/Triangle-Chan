@@ -8,13 +8,16 @@ const Layout = () => {
   const [popups, setPopups] = useState<{ id: number; text: string }[]>([]);
   const nextPopupId = useRef(0);
 
-  const audioTemplate = useRef<HTMLAudioElement | null>(null);
+  const templateAudios = useRef<HTMLAudioElement[]>([]);
 
   useEffect(() => {
-    audioTemplate.current = new Audio(
-      import.meta.env.BASE_URL + "/assets/torai-anguru.wav",
-    );
-    audioTemplate.current.load();
+    templateAudios.current = [
+      // トライ・アングルです。
+      "/assets/torai-anguru-1.wav",
+      // 三角こんにちは！
+      "/assets/torai-anguru-2.wav",
+    ].map((path) => new Audio(import.meta.env.BASE_URL + path));
+    templateAudios.current.forEach((audio) => audio.load());
 
     setPopups([
       {
@@ -23,7 +26,7 @@ const Layout = () => {
       },
       {
         id: -1,
-        text: "Anguru-san will introduce herself",
+        text: "Anguru-san will say something",
       },
     ]);
   }, []);
@@ -31,9 +34,15 @@ const Layout = () => {
   useEffect(() => {
     if (!REGEX.test(count.toString())) return;
 
-    // Play sound: こんにちは！トライ・アングルです。
-    const audio = audioTemplate.current?.cloneNode(true) as HTMLAudioElement;
-    audio.play().catch(() => {});
+    const templates = templateAudios.current;
+    const index = Math.floor(Math.random() * templates.length);
+
+    // Play sound
+    if (templates.length > 0) {
+      const template = templates[index];
+      const audio = template.cloneNode(true) as HTMLAudioElement;
+      audio.play().catch(() => {});
+    }
 
     if (nextPopupId.current == 0) {
       setPopups([]);
@@ -46,7 +55,7 @@ const Layout = () => {
       ...p,
       {
         id,
-        text: "Hello! I am Torai Anguru!",
+        text: ["I am Torai Anguru!", "Hello Trianglings!"][index],
       },
     ]);
 
