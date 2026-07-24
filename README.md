@@ -9,17 +9,17 @@ Triangle version:
 <!-- DEPENDENCIES_START -->
 | Package | Version |
 |---|---|
-| lucide-react | ^1.0.1 |
-| react | ^19.2.4 |
-| react-dom | ^19.2.4 |
+| lucide-react | ^1.26.0 |
+| react | ^19.2.8 |
+| react-dom | ^19.2.8 |
 | tailwindcss | ^4.2.1 |
 | @eslint/js | ^10.0.1 |
 | @tailwindcss/vite | ^4.2.1 |
 | @types/node | ^25.5.0 |
 | @types/react | ^19.2.14 |
 | @types/react-dom | ^19.2.3 |
-| @vitejs/plugin-react-swc | ^4.3.0 |
-| eslint | ^10.1.0 |
+| @vitejs/plugin-react-swc | ^4.3.2 |
+| eslint | ^10.8.0 |
 | eslint-plugin-react-hooks | ^7.0.1 |
 | eslint-plugin-react-refresh | ^0.5.2 |
 | gh-pages | ^6.3.0 |
